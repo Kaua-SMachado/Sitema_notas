@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../Imagens/Favicon.png" type="image/x-icon">
+    <title>NotasPro</title>
+</head>
+<body>
+    <p>Alunos cadastrados: <span id="num">0</span></p>
+    <section id="tela_toda">
+        <section id="tela_quad">
+            <header>
+                <h1>Sistema De Notas</h1>
+            </header>
+            <main>
+                <form id="formulario">
+                    <section>
+                        <div>
+                            <label for="id">RGM do aluno: </label>
+                            <input type="number" name="id" id="id" minlength="8" maxlength="8" required>
+                        </div>
+                        <div>
+                            <label for="nome">Nome Aluno: </label>
+                                <input type="text" name="nome" id="nome" required>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <div>
+                            <label for="at">Quant. de Atividades: </label>
+                                <input type="number" name="at" id="atividade" min="0" requerid>
+                        </div>
+                        <div>
+                            <label for="n1">Digite a primeira Nota: </label>
+                                <input type="number" name="n1" id="n1" min="0" max="10" required step="any">
+                        </div>
+                        <div>
+                            <label for="n2">Digite a Segunda Nota:</label>
+                                <input type="number" name="n2" id="n2" min="0" max="10" required step="any">
+                        </div>
+                    </section>
+
+                    <div id="bnts">
+                        <input type="submit" value="Cadastrar" id="media">
+                        <input type="submit" value="Mostrar" id="mostrar">
+                    </div>
+                </form>
+            </main>
+
+        </section>
+    </section>
+    <script src="notas.js"></script>
+</body>
+</html>

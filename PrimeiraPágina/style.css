@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+/*Formatando todo o site*/
+*{
+    padding: 0px;
+    margin: 0px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/*Definindo para a altura do documento fique 100%*/
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/*Configurando para que o a seção do documento pegue a tela toda para centralizar o conteúdo*/
+section#tela_toda{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Parte especifica da seção do conteúdo */
+section#tela_quad{
+    background-color: #FFFFFF;
+    max-width: 600px;
+    border: 2px solid black;
+    border-radius: 1em;
+    padding: 1em;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15)
+}
+
+div{
+    margin: 1em 0.5em 1em 0.5em;
+}
+
+p{
+    margin-top: .5em;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+}
+
+header{
+    background-color: #5507c2;
+    margin: -1em -1em 1em -1em;
+    border-radius: .8em .8em 0em 0em;
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2)
+}
+
+header h1{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: .5em;
+    font-size: 2.3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+label{
+    width: 11em;
+    display: inline-block;
+    text-align: left; 
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#formulario input[type="text"], 
+#formulario input[type="number"]{
+    margin-bottom: 10px; 
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 15em;
+    min-width: 0; 
+}
+
+#formulario input[type="text"]:focus,
+#formulario input[type="number"]:focus{
+     box-shadow: 0 0 8px #5507c2; 
+    outline: none;
+}
+
+div#bnts{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 200px;
+    margin: 0 auto;
+}
+
+#bnts input[type="submit"]{
+    padding: 10px 20px;
+    background-color:  #5507c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 200px; 
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+#bnts input[type="submit"]:hover{
+    background-color: #4a00af; 
+    transform: translate(0px, -3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+

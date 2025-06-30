@@ -1,23 +1,42 @@
-var id01 = []
+let id01 = []
 var nome01 = []
-var n01 = []
-var n02 = []
-var mediaNotas = []
-var situacao = []
+let n01 = []
+let n02 = []
+let mediaNotas = []
+let situacao = []
+let n = 0
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    bntEnviar = document.getElementById('media');
+    bntEnviar.addEventListener('click', function(event01){
+        event01.preventDefault();
+        media();
+    })
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    bntMostrar = document.getElementById('mostrar');
+    bntMostrar.addEventListener('click', function(event02){
+        event02.preventDefault();
+        mostrar()
+    })
+})
 
 function media(){
-    var id = parseInt(window.document.getElementById("id").value)
-    var nome = window.document.getElementById("nome").value 
-    var n1 = parseFloat(window.document.getElementById("n1").value)
-    var n2 = parseFloat(window.document.getElementById("n2").value)
-    var ninput = document.getElementById("num");
-    var n = parseInt(ninput.value) || 0;
-    var res = window.document.getElementById("resultado")
+    let id = parseInt(window.document.getElementById("id").value)
+    let nome = window.document.getElementById("nome").value 
+    let at = parseInt(window.document.getElementById('atividade').value)
+    let n1 = parseFloat(window.document.getElementById("n1").value)
+    let n2 = parseFloat(window.document.getElementById("n2").value)
+    let ninput = document.getElementById("num");
+    let res = window.document.getElementById("resultado")
 
     if (isNaN((id))){
         window.alert("Digite o Id do aluno")
     }else if (nome.trim() === ""){
         window.alert("Digite o nome do Aluno")
+    } else if (isNaN(at)){
+        window.alert('Digite a quantidade de atividades feita')
     } else if (isNaN((n1))){
         window.alert("Digite a nota da M1 do aluno")
     } else if (isNaN((n2))){
@@ -37,9 +56,9 @@ function media(){
             n01.push(n1)
             n02.push(n2)
 
-            var mediaAluno = (n1+n2)/2
+            let mediaAluno = (n1+(n2*2)/3)+(at*0.2)
 
-            var situacao01 = "Aprovado"
+            let situacao01 = "Aprovado"
             if (mediaAluno < 6){
                 situacao01 = "Reprovado"
             }
@@ -54,11 +73,12 @@ function media(){
             createNome = document.createElement("td")
             createNome.innerHTML = nome01[n-1]
 
-            createmediaaluno = document.createElement("td")
+            createmediaaluno = document.createElement("td")  
             createmediaaluno.innerHTML = mediaAluno.toFixed(2)
 
             createSituacao = document.createElement("td")
             createSituacao.innerHTML = situacao01
+            createSituacao.setAttribute("data-status", situacao01);
             
             res.appendChild(coluna)
             coluna.appendChild(createId);
@@ -72,4 +92,8 @@ function media(){
             window.alert('Número de alunos excedido!')
     }
 
+}
+
+function mostrar(){
+    window.location.href = "../SegundaPágina/index.html"
 }
