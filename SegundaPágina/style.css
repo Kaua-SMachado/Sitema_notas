@@ -36,3 +36,11 @@ td, th {
     padding: 0.8em 1.2em;
     font-size: 0.95em; 
 }
+
+td[data-status="Reprovado"] {
+    color: red;
+}
+
+td[data-status="Aprovado"] {
+    color: green; 
+}

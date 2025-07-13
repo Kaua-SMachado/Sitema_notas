@@ -1,10 +1,16 @@
-let id01 = []
-var nome01 = []
+localStorage.removeItem("alunosId");
+localStorage.removeItem("alunosNomes");
+localStorage.removeItem("alunosMedia");
+localStorage.removeItem("alunosSituacao");
+
+
+let id01 = JSON.parse(localStorage.getItem("alunosId")) || [];
+var nome01 = JSON.parse(localStorage.getItem("alunosNomes")) || []
 let n01 = []
 let n02 = []
-let mediaNotas = []
-let situacao = []
-let n = 0
+let mediaNotas = JSON.parse(localStorage.getItem("alunosMedia")) || [];
+let situacao = JSON.parse(localStorage.getItem("alunosSituacao")) || [];
+let n = 0;
 
 document.addEventListener('DOMContentLoaded', ()=>{
     bntEnviar = document.getElementById('media');
@@ -29,11 +35,12 @@ function media(){
     let n1 = parseFloat(window.document.getElementById("n1").value)
     let n2 = parseFloat(window.document.getElementById("n2").value)
     let ninput = document.getElementById("num");
-    let res = window.document.getElementById("resultado")
 
     if (isNaN((id))){
         window.alert("Digite o Id do aluno")
-    }else if (nome.trim() === ""){
+    }/*else if (id.length < 5){
+        window.alert('O RGM deve ter 5 dígitos')
+    }*/else if (nome.trim() === ""){
         window.alert("Digite o nome do Aluno")
     } else if (isNaN(at)){
         window.alert('Digite a quantidade de atividades feita')
@@ -56,37 +63,27 @@ function media(){
             n01.push(n1)
             n02.push(n2)
 
-            let mediaAluno = (n1+(n2*2)/3)+(at*0.2)
+            let mediaAluno = ((n1 + (n2 * 2)) / 3) + (at * 0.2);
+
+            if (mediaAluno > 10){
+                mediaAluno = 10;
+            }
 
             let situacao01 = "Aprovado"
+            body.situação01.style.color = 'red'
             if (mediaAluno < 6){
                 situacao01 = "Reprovado"
             }
             situacao.push(situacao01)
             mediaNotas.push(mediaAluno)
 
-            coluna = document.createElement("tr")
-
-            createId = document.createElement("td")
-            createId.innerHTML = id01[n - 1]
-
-            createNome = document.createElement("td")
-            createNome.innerHTML = nome01[n-1]
-
-            createmediaaluno = document.createElement("td")  
-            createmediaaluno.innerHTML = mediaAluno.toFixed(2)
-
-            createSituacao = document.createElement("td")
-            createSituacao.innerHTML = situacao01
-            createSituacao.setAttribute("data-status", situacao01);
-            
-            res.appendChild(coluna)
-            coluna.appendChild(createId);
-            coluna.appendChild(createNome)
-            coluna.appendChild(createmediaaluno)
-            coluna.appendChild(createSituacao)
+            localStorage.setItem('alunosId', JSON.stringify(id01));
+            localStorage.setItem('alunosNomes', JSON.stringify(nome01));
+            localStorage.setItem('alunosMedia', JSON.stringify(mediaNotas));
+            localStorage.setItem('alunosSituacao', JSON.stringify(situacao));
 
             document.getElementById("formulario").reset()
+
 
     }else{
             window.alert('Número de alunos excedido!')
@@ -96,4 +93,5 @@ function media(){
 
 function mostrar(){
     window.location.href = "../SegundaPágina/index.html"
+
 }
