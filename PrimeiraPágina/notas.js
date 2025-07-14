@@ -70,7 +70,6 @@ function media(){
             }
 
             let situacao01 = "Aprovado"
-            body.situação01.style.color = 'red'
             if (mediaAluno < 6){
                 situacao01 = "Reprovado"
             }

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         coluna.appendChild(createNome)
         coluna.appendChild(createmediaaluno)
         coluna.appendChild(createSituacao)
-            }
+    }
 
 })
 
